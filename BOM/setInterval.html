@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    var num = 0;
+   /* var timer = setInterval(function(){
+        num++;
+        console.log(Math.random());
+        if(num == 10){
+            clearInterval(timer);           每隔500ms执行一次
+        }
+    },500);*/
+
+   /* timer1 = setTimeout(function(){        500ms执行一次
+        console.log(Math.random());
+    },500);
+
+    clearTimeout(timer1);*/
+
+   /* var flag = true;
+    while(flag){
+        setTimeout(function(){
+            console.log(Math.random());
+        },500);            因为循环很快的执行，要不了500ms，所以最后浏览器卡住，没有结果
+    }*/
+
+
+   /* time1=setTimeout(function () {
+        console.log(Math.random());
+//      console.log(arguments.callee);  该语句显示arguments.callee返回的是什么
+        arguments.callee(); /!*执行该语句后，没有时间间隔循环执行该函数 ，对比下面的递归调用*!/
+    },500)*/
+
+    function aa(){
+        setTimeout(function(){
+            console.log(Math.random());
+            aa();
+        },500);
+    }
+
+    aa();
+
+
+
+
+
+
+</script>
+11111111
+</body>
+</html>

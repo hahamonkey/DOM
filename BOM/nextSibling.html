@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div1">dsjafl</div>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li id="aa">4</li>
+</ul>
+<script>
+    var oDiv=document.getElementById('div1');
+    var oUl=document.getElementsByTagName('ul')[0];
+    function next(elem){
+        do{
+            elem=elem.nextSibling;
+        }while(elem&&elem.nodeType!=1);
+        return elem;
+    }
+    console.log(next(oDiv));
+    function first(elem){
+        elem=elem.firstChild;
+        /*if(elem.nodeType!=1){
+            do{
+                elem=elem.nextSibling;
+            }while(elem&&elem.nodeType!=1);
+            return elem;
+        }
+        return elem;*/
+        return elem.nodeType!=1?elem:next(elem);
+    }
+    console.log(first(oUl));
+</script>
+</body>
+</html>

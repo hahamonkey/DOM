@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width:200px;
+            height:200px;
+            background:#000;
+            color:#fff;
+        }
+
+    </style>
+</head>
+<body>
+<div id="div1">吼吼
+<div id="div2"></div></div>
+<script>
+    var oDiv=document.getElementById('div1');
+
+
+    function addEvent(elem,evtype,fn,flag){  /*该函数的目的是使this指向elem，解决了浏览器兼容性问题*/
+        if(elem.addEventListener){
+            elem.addEventListener(evtype,fn,flag);
+        }
+        else{
+            elem.addEvent('on'+evtype,function(){
+                fn.call(elem);
+            });
+        }
+    }
+    addEvent(oDiv,'click',function(){
+        alert('111');
+        alert(this.innerHTML);
+    },false)
+</script>
+</body>
+</html>

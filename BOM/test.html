@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var person={
+        name:'zhangsan',
+        age:20,
+        brother:{
+            name:'lisi',
+            age:30,
+            wife:{
+                name:'xuexue'
+            }
+        }
+    };
+    document.write(person['brother']['wife']['name']);
+//    brother、wife既是属性又是对象
+</script>
+</body>
+</html>

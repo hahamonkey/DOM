@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <span id="tm"></span>
+    <script type="text/javascript">
+        var timer;
+        var cur=new Date().getTime();
+       /* //setInterval();
+        var setTime=function(){
+            //在tm元素中显示当前时间
+            document.getElementById('tm').innerHTML=new Date().toLocaleString();
+            //如果当前时间比起始时间大于60秒，则停止定时器的调度
+            if(new Date().getTime()-cur>60*1000){
+                //清除定时器
+                clearInterval(timer);
+            }
+        }
+        timer=window.setInterval('setTime();',1000);*/
+
+        //setTimeOut();
+        var setTime=function(){
+            document.getElementById('tm').innerHTML=new Date().toLocaleString();
+            //如果当前时间比起始时间所大的值小于等于60秒，这执行定时器调度
+            if(new Date().getTime()-cur<=60){
+                window.setTimeout('setTime();',1000);
+            }
+        }
+        setTime();
+    </script>
+</body>
+</html>

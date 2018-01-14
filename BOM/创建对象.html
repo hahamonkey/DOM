@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //创建对象有以下几种方式：
+    //使用new关键字调用构造器创建对象
+    function Person(name,age){
+        //将name、age形参赋值给name、age实例属性
+        this.name=name;
+        this.age=age;
+    }
+    var p1=new Person();
+    var p2=new Person('yeeku',29);
+
+    //使用Object直接创建对象
+    var myObj=new Object();
+    myObj.name='yeeku';
+    myObj.age=29;
+    /*myObj.info=function abc(){                 //为对象增加方法,也可以通过将已有的函数添加为对象，例如：function abc(){};myObj.info=abc;
+        document.writeln('对象的name属性：'+this.name);
+        document.writeln('<br>');
+        document.writeln('对象的age属性：'+this.age);
+    }*/
+    //document.writeln相对于document.write只是多了空格，两者都不会换行
+    myObj.info=new Function("document.writeln('对象的name属性：'+this.name);"
+    +"document.writeln('<br />');"
+    +"document.writeln('对象的age属性：'+this.age)");
+    myObj.info();
+    document.writeln('<br />');
+
+    //对象字面量表示法
+    var person={
+        name:'zhangsan',
+        age:20,
+        brother:{
+            name:'lisi',
+            age:30,
+            wife:{
+                name:'xuexue'
+            }
+        }
+    };
+    document.write(person['brother']['wife']['name']); //    brother、wife既是属性又是对象
+    //通常，除非必须使用变量来访问属性（上面带中括号的写法，属性中间有空格则不能使用中括号写法，例如：Person['first name']），否则我们建议使用点表示法
+
+</script>
+</body>
+</html>

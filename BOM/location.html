@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var loc=window.location;
+    var locStr="当前的location信息是：";
+    for(var propname in loc){
+        locStr += propname + ":" + loc[propname] + "<br>";
+    }
+    document.write(locStr);
+</script>
+</body>
+</html>

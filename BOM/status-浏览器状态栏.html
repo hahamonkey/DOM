@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body onload="stack()">
+<script>
+    var statusText="自定义的动画状态栏文字";
+    var out = "";
+    var pause = 25;
+    var animateWidth = 20;
+    var position=animateWidth;
+    var i=0;
+    var stack=function(){
+        if(statusText.charAt(i) != " "){
+            out = "" ;
+            for(var j = 0; j < i; j++){
+                out +=statusText.charAt(j);
+            }
+            for(j = 1; j < position; j++){
+                out += " ";
+            }
+            out += statusText.charAt(i);
+            for(j = position; j < animateWidth; j++){
+                out += " ";
+            }
+            window.status = out;
+            if(position = 1){
+                animateWidth++;
+                position = animateWidth;
+                i++;
+            }else{
+                position--;
+            }
+        }else{
+            i++;
+        }
+        if(i < statusText.length){
+            setTimeout("stack()",pause);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function getElementByClassName(clsName,context){ //context限定搜索范围
+        var result=[];
+        context=context||document;
+        var oTag=context.getElementByTagName('*');
+        for(var i=0;i<oTag.length;i++){
+
+            //indexOf可以检查字符串中是否含有某字符串，但这里不合适，如果要找aa,aabb也符合要求
+            /*if(oTag[i].className.indexOf(clsName) != -1){
+                result.push(oTag[i]);
+            }*/
+
+            var arr=oTag[i].className.split(' ');
+            for(var j= 0;j<arr.length;j++){
+                if(arr[j]==clsName){
+                    result.push(oTag[i]);
+                }
+            }
+        }
+        return result;
+    }
+</script>
+</body>
+</html>

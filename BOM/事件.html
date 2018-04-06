@@ -20,13 +20,19 @@
     var oDiv=document.getElementById('div1');
 
 
-    function addEvent(elem,evtype,fn,flag){  /*该函数的目的是使this指向elem，解决了浏览器兼容性问题*/
+    function addEvent(elem,evtype,fn,flag){
         if(elem.addEventListener){
             elem.addEventListener(evtype,fn,flag);
         }
         else{
+
+           /* IE下绑定事件,this指向window
+            elem.addEvent('on'+evtype,fn);  */
+
+
             elem.addEvent('on'+evtype,function(){
-                fn.call(elem);
+
+                fn.call(elem);             /*该函数的目的是使this指向elem，解决了浏览器兼容性问题*/
             });
         }
     }
@@ -34,6 +40,11 @@
         alert('111');
         alert(this.innerHTML);
     },false)
+</script>
+<script>
+    document.onkeydown = function(e){
+        var keycode = e.keyCode || window.event.which;
+    }
 </script>
 </body>
 </html>

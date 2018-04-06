@@ -26,7 +26,8 @@
         e=e||window.event;
         var X= e.clientX-oDiv.offsetLeft;
         var Y= e.clientY-oDiv.offsetTop;
-        document.onmousemove=function(e){
+        document.onmousemove=function(e){  //这里给document添加事件而不是oDiv，看好依赖关系，如果是oDiv则存在bug
+            e = e || window.event;
             oDiv.style.left= e.clientX-X+'px';
             oDiv.style.top= e.clientY-Y+'px';
         }

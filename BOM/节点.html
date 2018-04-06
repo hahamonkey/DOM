@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //firstElementChild  第一个元素节点，避免取得空格节点，DOM3，IE不支持
+    function first(elem){
+        elem = elem.firstChild;
+        if(elem.nodeType == 1){
+            return elem;
+        }
+        do{
+            elem = elem.nextSibling;
+        }while( elem && elem.nodeType != 1); //elem必须存在即值为非null
+        return elem;
+    }
+</script>
+</body>
+</html>

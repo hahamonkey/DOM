@@ -17,12 +17,12 @@
         #drag{
             width:200px;
             height:200px;
-            background:#b0b0b0;
-            opacity: 0.6;
+            background:#e0e0e0;            opacity: 0.6;
             filter:alpha(opacity=60);
             position:absolute;
             top:0;
             left:0;
+            display:none;
         }
         #big-box{
             width:400px;
@@ -33,6 +33,9 @@
             overflow:hidden;
 
         }
+        #big-image{
+            position:absolute;
+        }
     </style>
 </head>
 <body>
@@ -41,7 +44,43 @@
     <div id="drag"></div>
 </div>
 <div id="big-box">
-    <img src="images/2.jpg" alt=""/>
+    <img id="big-image" src="images/2.jpg" alt=""/>
 </div>
+<script>
+    var oDrag = document.getElementById('drag');
+    var oSmallBox = document.getElementById('small-box');
+    var oBigBox = document.getElementById('big-box');
+    var oBigImg = document.getElementById('big-image');
+    oSmallBox.onmouseover = function(){
+        oDrag.style.display = "block";
+        oBigBox.style.display = "block";
+        oSmallBox.onmousemove();
+    };
+    oSmallBox.onmouseout = function(){
+        oDrag.style.display = "none";
+        oBigBox.style.display = "none";
+    }
+    oSmallBox.onmousemove = function(e){
+        e = e || window.event;
+        iLeft = e.clientX - oDrag.offsetWidth/2;
+        iTop = e.clientY - oDrag.offsetWidth/2;
+        if(e.clientX > 300){
+            iLeft = 200;
+        }
+        if(e.clientX < 100){
+            iLeft = 0;
+        }
+        if(e.clientY > 300){
+            iTop = 200;
+        }
+        if(e.clientY < 100){
+            iTop = 0;
+        }
+        oDrag.style.left = iLeft + 'px';
+        oDrag.style.top = iTop + 'px';
+        oBigImg.style.left = -iLeft*2 + "px";
+        oBigImg.style.top = -iTop*2 + "px";
+    }
+</script>
 </body>
 </html>
